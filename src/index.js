@@ -44,52 +44,46 @@ console.log('Proje açıldı!')
 
 /* Kodlar Buradan aşağıya */
 
-document.querySelectorAll("a")[0].textContent = "Servisler";
-document.querySelectorAll("a")[1].textContent = "Ürünler";
-document.querySelectorAll("a")[2].textContent = "Vizyon";
-document.querySelectorAll("a")[3].textContent = "Özellikler";
-document.querySelectorAll("a")[4].textContent = "Hakkımızda";
-document.querySelectorAll("a")[5].textContent = "İletişim";
+//Header Bölümü:
+document.getElementById("logo-img").src = siteContent.images["logo-img"];
+const linker = document.querySelectorAll("nav a");
+linker.forEach((item, index)=> {
+  item.className ="italic";
+  item.textContent = siteContent.nav["nav-item-" + (index+1)];
+});
 
-const linker = document.querySelectorAll("header nav a");
-linker.forEach(i => { i.classList.add("italic")});
+//Section-1:
+document.querySelector("h1").textContent = siteContent.cta.h1;
+document.querySelector("button").textContent = siteContent.cta.button;
+document.getElementById("cta-img").src = siteContent.images["cta-img"];
 
+//Section-2:
+const contentHead = document.querySelectorAll("h4");
+contentHead[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
+contentHead[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
+contentHead[2].textContent = siteContent["ana-içerik"]["servisler-h4"];
+contentHead[3].textContent = siteContent["ana-içerik"]["ürünler-h4"];
+contentHead[4].textContent = siteContent["ana-içerik"]["vizyon-h4"];
 
+document.getElementById("middle-img").src = siteContent.images["accent-img"];
 
-const logoImg=document.getElementById("logo-img");
-logoImg.src = "http://localhost:9000/img/logo.png";
+const contentText = document.querySelectorAll(".text-content p");
+contentText[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
+contentText[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
+contentText[2].textContent = siteContent["ana-içerik"]["servisler-içeriği"];
+contentText[3].textContent = siteContent["ana-içerik"]["ürünler-içeriği"];
+contentText[4].textContent = siteContent["ana-içerik"]["vizyon-içeriği"];
 
-document.querySelector(".cta-text h1").textContent ="Bu DOM Mükemmel";
-document.querySelector(".cta-text button").textContent ="Başlayın";
+//Section-3:
 
-document.getElementById("cta-img").setAttribute("src","http://localhost:9000/img/cta.png");
+document.querySelector(".contact h4").textContent = siteContent.iletisim["iletişim-h4"]
 
-const textH4=document.querySelectorAll(".text-content h4");
-const textP=document.querySelectorAll(".text-content p"); 
+const contactP = document.querySelectorAll(".contact p")
+contactP[0].textContent = siteContent.iletisim.adres;
+contactP[1].textContent = siteContent.iletisim.telefon;
+contactP[2].textContent = siteContent.iletisim.email;
 
-textH4[0].textContent="Özellikler";
-textP[0].textContent="Özellikler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio,in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metusscelerisque quis.";
-
-textH4[1].textContent="Hakkında";
-textP[1].textContent="Hakkında içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
-
-textH4[2].textContent="Servisler";
-textP[2].textContent="Servisler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis."
-
-textH4[3].textContent="Ürünler";
-textP[3].textContent= "Ürünler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis."
-
-textH4[4].textContent="Vizyon";
-textP[4].textContent="Vizyon içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis."
-
-document.getElementById("middle-img").setAttribute("src","http://localhost:9000/img/accent.png");
-
-document.querySelector(".contact h4").textContent ="İletişim";
-const contactP = document.querySelectorAll(".contact p");
-contactP[0].textContent = "100 numara Bilmem ne sokak Ankara'da bir semt, Türkiye";
-contactP[1].textContent ="+90 (123) 456-7899";
-contactP[2].textContent ="satis@birsirketsitesi.com.tr";
-
-const footer = document.querySelector("footer a");
-footer.textContent="Copyright Bir Şirket Sitesi 2022";
-footer.classList.add("bold");
+//Footer:
+const footerDOM = document.querySelector("footer a");
+footerDOM.className = "bold";
+footerDOM.textContent = siteContent.footer.copyright;
