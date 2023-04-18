@@ -58,21 +58,34 @@ document.querySelector("button").textContent = siteContent.cta.button;
 document.getElementById("cta-img").src = siteContent.images["cta-img"];
 
 //Section-2:
-const contentHead = document.querySelectorAll("h4");
-contentHead[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
-contentHead[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
-contentHead[2].textContent = siteContent["ana-içerik"]["servisler-h4"];
-contentHead[3].textContent = siteContent["ana-içerik"]["ürünler-h4"];
-contentHead[4].textContent = siteContent["ana-içerik"]["vizyon-h4"];
+const mainTextContent = document.querySelectorAll('.text-content');
+
+let index = 0;
+for (let i =0; i<mainTextContent.length;i++){
+  mainTextContent[i].children[0].textContent=Object.values(siteContent["ana-içerik"])[index];
+  index+=1
+  mainTextContent[i].children[1].textContent=Object.values(siteContent["ana-içerik"])[index];
+  index+=1
+}
 
 document.getElementById("middle-img").src = siteContent.images["accent-img"];
 
-const contentText = document.querySelectorAll(".text-content p");
-contentText[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
-contentText[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
-contentText[2].textContent = siteContent["ana-içerik"]["servisler-içeriği"];
-contentText[3].textContent = siteContent["ana-içerik"]["ürünler-içeriği"];
-contentText[4].textContent = siteContent["ana-içerik"]["vizyon-içeriği"];
+
+// const contentHead = document.querySelectorAll("h4");
+// contentHead[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
+// contentHead[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
+// contentHead[2].textContent = siteContent["ana-içerik"]["servisler-h4"];
+// contentHead[3].textContent = siteContent["ana-içerik"]["ürünler-h4"];
+// contentHead[4].textContent = siteContent["ana-içerik"]["vizyon-h4"];
+
+// document.getElementById("middle-img").src = siteContent.images["accent-img"];
+
+// const contentText = document.querySelectorAll(".text-content p");
+// contentText[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
+// contentText[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
+// contentText[2].textContent = siteContent["ana-içerik"]["servisler-içeriği"];
+// contentText[3].textContent = siteContent["ana-içerik"]["ürünler-içeriği"];
+// contentText[4].textContent = siteContent["ana-içerik"]["vizyon-içeriği"];
 
 //Section-3:
 
